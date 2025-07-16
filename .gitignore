@@ -1,0 +1,9 @@
+# Jangan upload file credentials
+scripts/service-account-key.json
+
+# Ignore build dan sistem lokal
+build/
+.dart_tool/
+.idea/
+.packages
+*.iml

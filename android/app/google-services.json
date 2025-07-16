@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "578974484653",
+    "project_id": "turbidity-iot-app",
+    "storage_bucket": "turbidity-iot-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:578974484653:android:43fd8efb6a214079d19e24",
+        "android_client_info": {
+          "package_name": "com.example.turbidity_iot"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPfqT2Q4dDcxTWQ-PKQicUt54VRkpvnkY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
