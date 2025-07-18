@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:intl/intl.dart';
@@ -15,12 +16,15 @@ class _HomePageState extends State<HomePage> {
   String status = 'OFFLINE';
 
   final dbRef = FirebaseDatabase.instance.ref('device_status/kolam_01');
+  late StreamSubscription<DatabaseEvent> _subscription;
 
   @override
   void initState() {
     super.initState();
-    dbRef.onValue.listen((event) {
+    _subscription = dbRef.onValue.listen((event) {
       final data = event.snapshot.value as Map?;
+      if (!mounted) return; // ⛔ stop jika widget sudah tidak aktif
+
       if (data != null) {
         setState(() {
           turbidity = double.tryParse(data['ntu'].toString()) ?? 0.0;
@@ -41,6 +45,12 @@ class _HomePageState extends State<HomePage> {
         });
       }
     });
+  }
+
+  @override
+  void dispose() {
+    _subscription.cancel(); // ✅ hentikan listener saat widget ditutup
+    super.dispose();
   }
 
   String getCategory(double ntu) {
@@ -87,10 +97,7 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         const Icon(Icons.wifi, color: Colors.grey),
                         const SizedBox(width: 8),
-                        Text(
-                          "Status: ",
-                          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                        ),
+                        const Text("Status: ", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                         Text(
                           status,
                           style: TextStyle(
@@ -117,10 +124,7 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         const Icon(Icons.check_circle_outline, color: Colors.grey),
                         const SizedBox(width: 8),
-                        Text(
-                          "Kategori: ",
-                          style: const TextStyle(fontSize: 16),
-                        ),
+                        const Text("Kategori: ", style: TextStyle(fontSize: 16)),
                         Text(
                           getCategory(displayNTU),
                           style: TextStyle(
@@ -148,7 +152,7 @@ class _HomePageState extends State<HomePage> {
             ),
             const SizedBox(height: 20),
             const Text(
-              'Data real-time dari sensor turbidity akan\nditampilkan setiap 15 detik.',
+              'Data real-time dari sensor turbidity akan\nditampilkan setiap 5 detik.',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 15, color: Colors.black87),
             ),

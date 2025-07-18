@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'firebase_options.dart';
 
@@ -11,11 +12,17 @@ import 'pages/settings_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Inisialisasi Firebase
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  // Opsional: Izinkan notifikasi (jika akan digunakan)
+  // Inisialisasi Hive
+  await Hive.initFlutter();
+  await Hive.openBox('settings');
+
+  // Izinkan notifikasi FCM
   await FirebaseMessaging.instance.requestPermission();
 
   // Debug: cetak token FCM (hapus di production)

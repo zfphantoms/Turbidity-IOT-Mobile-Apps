@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "578974484653",
+    "firebase_url": "https://turbidity-iot-app-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "turbidity-iot-app",
     "storage_bucket": "turbidity-iot-app.firebasestorage.app"
   },

@@ -46,6 +46,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '578974484653',
     projectId: 'turbidity-iot-app',
     authDomain: 'turbidity-iot-app.firebaseapp.com',
+    databaseURL: 'https://turbidity-iot-app-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'turbidity-iot-app.firebasestorage.app',
   );
 
@@ -54,6 +55,7 @@ class DefaultFirebaseOptions {
     appId: '1:578974484653:android:43fd8efb6a214079d19e24',
     messagingSenderId: '578974484653',
     projectId: 'turbidity-iot-app',
+    databaseURL: 'https://turbidity-iot-app-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'turbidity-iot-app.firebasestorage.app',
   );
 
@@ -62,6 +64,7 @@ class DefaultFirebaseOptions {
     appId: '1:578974484653:ios:1bc65a2cdb951167d19e24',
     messagingSenderId: '578974484653',
     projectId: 'turbidity-iot-app',
+    databaseURL: 'https://turbidity-iot-app-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'turbidity-iot-app.firebasestorage.app',
     iosBundleId: 'com.example.turbidityIot',
   );
@@ -71,6 +74,7 @@ class DefaultFirebaseOptions {
     appId: '1:578974484653:ios:1bc65a2cdb951167d19e24',
     messagingSenderId: '578974484653',
     projectId: 'turbidity-iot-app',
+    databaseURL: 'https://turbidity-iot-app-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'turbidity-iot-app.firebasestorage.app',
     iosBundleId: 'com.example.turbidityIot',
   );
@@ -81,6 +85,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '578974484653',
     projectId: 'turbidity-iot-app',
     authDomain: 'turbidity-iot-app.firebaseapp.com',
+    databaseURL: 'https://turbidity-iot-app-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'turbidity-iot-app.firebasestorage.app',
   );
 }
